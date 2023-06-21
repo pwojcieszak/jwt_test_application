@@ -1,6 +1,5 @@
 package com.example.security.config;
 
-import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +23,7 @@ public class SecurityConfiguration {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("")
+                        auth.requestMatchers("api/v1/auth/**")
                         .permitAll()
                         .anyRequest()
                         .authenticated()
